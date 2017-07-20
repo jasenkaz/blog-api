@@ -1,7 +1,7 @@
 {
   "name": "blog-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "- Install and wire up the `morgan` logger\r - Install and wire up the `cors` middleware\r - Create and wire up the UserRouter\r \t+ GET /users\r \t+ GET /users/:userId\r \t+ POST /users\r \t+ PUT /users/:userId\r \t+ DELETE /users/:userId\r - Create and wire up the PostRouter\r \t+ GET /posts\r \t+ GET /posts/:postId\r \t+ POST /posts\r \t+ PUT /posts/:postId\r \t+ DELETE /posts/:postId\r - Create an mLab account\r - Download and install Mongo Compass\r - Wire up our API to a Mongo Instance using Mongoose\r - Download and install POSTMAN\r - Create the User Model\r - Create the Post Model\r - ...more..",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,9 +11,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.4",
     "express": "^4.15.3"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasenkaz/blog-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jasenkaz/blog-api/issues"
+  },
+  "homepage": "https://github.com/jasenkaz/blog-api#readme"
 }
