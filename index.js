@@ -2,14 +2,16 @@ const express = require('express');
 const server = express();
 
 const port = process.env.PORT || 8080;
-const morgan = require('morgan');
+const morgan = require('morgan'); //middleware imports
 const cors = require('cors');
-
+const userRouter = require('./routers/user.router');  //router imports
 
 
 //wire up the middleware
 server.use(morgan('dev'));
 server.use(cors());
+//wire up the routers
+server.use(userRouter);
 
 server.get('/', (req, res) => {
      res.send('it works');
