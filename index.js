@@ -1,18 +1,35 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const server = express();
 
+const { mongoURI } = require('./credentials'); //new syntax; handy but not necessary
+// const mongoURI = require('./credentials').mongoURI; //old style, still works
 const port = process.env.PORT || 8080;
-const morgan = require('morgan'); //middleware imports
+
+//connect to the database
+mongoose.connect(mongoURI, {
+  useMongoClient: true
+});
+
+//middleware imports
+const morgan = require('morgan');
 const cors = require('cors');
-const userRouter = require('./routers/user.router');  //router imports
+const bodyParser = require('body-parser');
+
+//router imports
+const userRouter = require('./routers/user.router');
 const postRouter = require('./routers/post.router');
 
 //wire up the middleware
-server.use(morgan('dev'));
 server.use(cors());
+server.use(morgan('dev'));
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true })); //look it up in express docs
+
 //wire up the routers
 server.use(userRouter);
 server.use(postRouter);
+
 
 server.get('/', (req, res) => {
      res.send('it works');
