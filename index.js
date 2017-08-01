@@ -24,7 +24,7 @@ const postRouter = require('./routers/post.router');
 server.use(cors());
 server.use(morgan('dev'));
 server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: true })); //look it up in express docs
+server.use(bodyParser.urlencoded({ extended: true }));
 
 //wire up the routers
 server.use(userRouter);
